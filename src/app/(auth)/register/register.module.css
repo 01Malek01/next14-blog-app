@@ -1,0 +1,11 @@
+/* styles.css */
+
+/* Reset default form styles */
+
+/* Center the form */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
