@@ -6,10 +6,11 @@ import { register } from '../../../lib/actions';
 import { useRouter } from 'next/navigation'; // note that it's next/navigation not next/router
 import Link from 'next/link'
 export default function RegisterForm() {
- const [state, FormAction] = useFormState(register, undefined);
+ //what we return from the action is the new state
+ const [state, FormAction] = useFormState(register, undefined); 
  const router = useRouter();
  useEffect(() => {
-  state?.success && router.push('/login')
+  state?.success && router.push('/login'); //if success is true, redirect to login page
  }, [state?.success, router])
  return (
   <form className={styles.form} action={FormAction}>
@@ -18,7 +19,8 @@ export default function RegisterForm() {
    <input className={styles.input} type="password" placeholder='password' name='password' />
    <input className={styles.input} type="password" placeholder='password again' name='passwordRepeat' />
    <button className={styles.button}>Register</button>
-   {state?.error}
+   {/* if the state has an error property,show it here. */}
+   {state?.error} 
    <div>
 
     <Link href={'/login'}>Already have an account? <b className={styles.link}>Login</b> </Link>
